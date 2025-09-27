@@ -10,6 +10,12 @@ import fa.State;
  */
 public class DFA implements DFAInterface {
 
+    // Instance Variables
+    private Set<State> states;
+    private Set<Character> sigma;
+    private State startState;
+    private Set<State> finalStates;
+
     @Override
     public boolean addState(String name) {
         // TODO Auto-generated method stub
