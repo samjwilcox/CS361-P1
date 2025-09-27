@@ -4,6 +4,10 @@ import java.util.Set;
 
 import fa.State;
 
+/**
+ * DFA concrete class that implements the DFAInterface.
+ * @author Sam Wilcox; Tyler Fernandez
+ */
 public class DFA implements DFAInterface {
 
     @Override
