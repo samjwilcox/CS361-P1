@@ -39,8 +39,16 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean setStart(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setStart'");
+        Iterator<State> iter = states.iterator();
+        while (iter.hasNext()) { // Iterate through states to find if name exists
+            State current = (State) iter.next();
+            if (current.getName().equals(name)) { // If found, make start state & return true
+                startState = current;
+                return true;
+            }
+        }
+
+        return false; // Name doesn't exist in states, return false
     }
 
     @Override
