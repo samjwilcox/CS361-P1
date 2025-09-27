@@ -60,14 +60,20 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<Character> getSigma() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSigma'");
+        return sigma;
     }
 
     @Override
     public State getState(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getState'");
+        Iterator<State> iter = states.iterator();
+        while (iter.hasNext()) { // Iterate through states to find if name exists
+            State current = (State) iter.next();
+            if (current.getName().equals(name)) { // If found, return state
+                return current;
+            }
+        }
+
+        return null; // Name doesn't exist in states, return null
     }
 
     @Override
