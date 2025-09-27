@@ -1,5 +1,6 @@
 package fa.dfa;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import fa.State;
@@ -24,8 +25,16 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean setFinal(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setFinal'");
+        Iterator<State> iter = states.iterator();
+        while (iter.hasNext()) { // Iterate through states to find if name exists
+            State current = (State) iter.next();
+            if (current.getName().equals(name)) { // If found, add to final states & return true
+                finalStates.add(current);
+                return true;
+            }
+        }
+
+        return false; // Name doesn't exist in states, return false
     }
 
     @Override
