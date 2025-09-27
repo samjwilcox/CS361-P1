@@ -45,8 +45,11 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addSigma(char symbol) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addSigma'");
+        if (sigma.contains(symbol)) {
+            System.out.println("Transition already exists");
+        } else {
+            sigma.add(symbol);
+        }
     }
 
     @Override
