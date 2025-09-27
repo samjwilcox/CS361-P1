@@ -78,14 +78,24 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean isFinal(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isFinal'");
+        Iterator<State> iter = finalStates.iterator();
+        while (iter.hasNext()) { // Iterate through final states to find if name exists
+            State current = (State) iter.next();
+            if (current.getName().equals(name)) { // State is final, return true
+                return true;
+            }
+        }
+
+        return false; // Name doesn't exist in final states, return false
     }
 
     @Override
     public boolean isStart(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isStart'");
+        if(startState.getName().equals(name)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
