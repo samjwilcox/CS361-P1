@@ -152,10 +152,6 @@ public class DFA implements DFAInterface {
 
         DFAState detFrom = (DFAState) from;
 
-        if (detFrom.getTransition(onSymb) != null) { // If not null, this would most likely create two transitions on the same symbol
-            return false;
-        }
-
         detFrom.putTransition(onSymb, to);
         return true;
     }
